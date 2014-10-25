@@ -1,6 +1,6 @@
 import shelve 	 	
 file_db = shelve.open("db")
-memory_db = {}
+memory_db = []
 
 def choose_storage(obj):    
     if str(obj).find('Image') != -1:
