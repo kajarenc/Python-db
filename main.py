@@ -18,7 +18,8 @@ def put(obj):
 def get(id):
     to_return = get_mem(id)	
     if to_return == None:
-        return get_file(id)	
+        to_return =  get_file(id)
+    return to_return
     
 def put_file(obj):
     file_db[str(obj.get_id())] = obj
@@ -28,7 +29,7 @@ def get_file(id):
     try:
         to_return = file_db[str(id)]
     except KeyError:
-        print "Error"
+        print "Error: No item with id = %s in file_db" %(str(id))
     return to_return
     
 def put_mem(obj):
@@ -39,7 +40,7 @@ def get_mem(id):
     try:
         to_return = memory_db[id]
     except KeyError:
-        print "Error"
+        print "Error:No item with id = %s in mem_db"%str(id)
     return to_return
 
 class Image(object):
